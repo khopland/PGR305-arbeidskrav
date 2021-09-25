@@ -10,11 +10,20 @@ export const ProsjektProvider: FC = ({ children }) => {
     'Prosjekter',
     []
   );
-
+  const updateProsjekt = (pro: prosjekt) => {
+    const i = prosjekter.findIndex(
+      (prosjektItem) => prosjektItem.navn === pro.navn
+    );
+    return i === -1
+      ? false
+      : setprosjekt((arr) => [...arr.slice(0, i), pro, ...arr.slice(i + 1)]);
+  };
   const saveProsjekt = (prosjekt: prosjekt) =>
     setprosjekt([prosjekt, ...prosjekter]);
   return (
-    <prosjektContext.Provider value={{ prosjekter, saveProsjekt }}>
+    <prosjektContext.Provider
+      value={{ prosjekter, saveProsjekt, updateProsjekt }}
+    >
       {children}
     </prosjektContext.Provider>
   );

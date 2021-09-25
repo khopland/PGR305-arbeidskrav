@@ -12,7 +12,6 @@ import { InputSelect } from '../common/inputSelect';
 export const AddProsjekt = () => {
   const { kunder } = useContext(kundeContext) as KundeContextType;
   const { saveProsjekt } = useContext(prosjektContext) as ProsjektContextType;
-
   const [navn, setNavn] = useState('');
   const [kunde, setKunde] = useState<kunde | null>(null);
   const [status, setStatus] = useState(Status.PLANING);
@@ -67,17 +66,18 @@ export const AddProsjekt = () => {
         </InputSelect>
 
         <InputSelect
-          value={kunde?.navn || ''}
+          value={kunde ? JSON.stringify(kunde) : ''}
           onValueChange={(e) =>
             setKunde(
-              kunder.find((k: kunde) => k.navn === e.target.value) || null
+              kunder.find((k: kunde) => JSON.stringify(k) === e.target.value) ||
+                null
             )
           }
           label={'kunde'}
         >
           <option value="">velg en kunde</option>
-          {kunder.map((kunde: kunde) => (
-            <option key={kunde.navn} value={kunde.navn}>
+          {kunder.map((kunde: kunde, i) => (
+            <option key={i} value={JSON.stringify(kunde)}>
               {kunde.navn}
             </option>
           ))}
