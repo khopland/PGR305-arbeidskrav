@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { AddAnsatte } from '../components/ansatte/addAnsatte';
 import { ListAnsatte } from '../components/ansatte/listAnsatte';
 

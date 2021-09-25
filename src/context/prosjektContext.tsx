@@ -12,7 +12,7 @@ export const ProsjektProvider: FC = ({ children }) => {
   );
   const updateProsjekt = (pro: prosjekt) => {
     const i = prosjekter.findIndex(
-      (prosjektItem) => prosjektItem.navn === pro.navn
+      (prosjektItem) => prosjektItem.Id === pro.Id
     );
     return i === -1
       ? false

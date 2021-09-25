@@ -11,7 +11,9 @@ import { InputSelect } from '../common/inputSelect';
 
 export const AddProsjekt = () => {
   const { kunder } = useContext(kundeContext) as KundeContextType;
-  const { saveProsjekt } = useContext(prosjektContext) as ProsjektContextType;
+  const { prosjekter, saveProsjekt } = useContext(
+    prosjektContext
+  ) as ProsjektContextType;
   const [navn, setNavn] = useState('');
   const [kunde, setKunde] = useState<kunde | null>(null);
   const [status, setStatus] = useState(Status.PLANING);
@@ -39,12 +41,22 @@ export const AddProsjekt = () => {
     e.preventDefault();
     setError(undefined);
     if (kunde == null) validate();
-    else if (validate() && saveProsjekt({ navn, kunde, status, ansatte: [] }))
+    else if (
+      validate() &&
+      saveProsjekt({
+        Id: prosjekter.length + 1,
+        navn,
+        kunde,
+        status,
+        ansatte: [],
+      })
+    )
       resetState();
   };
 
   return (
     <Container>
+      <h1>Legg til prosjekt</h1>
       <Form onSubmit={submit}>
         {error && <Alert variant={'danger'}>{error}</Alert>}
 
@@ -88,6 +100,7 @@ export const AddProsjekt = () => {
           Submit
         </Button>
       </Form>
+      <br />
     </Container>
   );
 };

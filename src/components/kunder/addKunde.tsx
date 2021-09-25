@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { kundeContext } from '../../context/kundeContext';
-import { kunde } from '../../interfaces/kunde';
 import { KundeContextType } from '../../types/kundeContextType';
 import { InputField } from '../common/inputField';
 

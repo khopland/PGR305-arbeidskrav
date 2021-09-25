@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { AnsatteProvider } from './context/ansatteContext';
 import { KundeProvider } from './context/kundeContext';
 import { ProsjektProvider } from './context/prosjektContext';
+import { Prosjekt } from './pages/prosjekt';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.render(
               <Route exact path="/prosjekt" component={Prosjekter} />
               <Route exact path="/ansatte" component={Ansatte} />
               <Route exact path="/kunder" component={Kunder} />
+              <Route exact path="/prosjekt/:prosjektId" component={Prosjekt} />
               <Route path="/" component={Main} />
             </Switch>
           </BrowserRouter>

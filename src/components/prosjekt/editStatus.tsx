@@ -46,22 +46,21 @@ export const EditStatus = () => {
 
   return (
     <Container>
+      <h2>Endre status</h2>
       <Form onSubmit={submit}>
         {error && <Alert variant={'danger'}>{error}</Alert>}
         <InputSelect
-          value={JSON.stringify(prosjekt) || ''}
+          value={prosjekt?.Id || ''}
           onValueChange={(e) =>
             setProsjekt(
-              prosjekter.find(
-                (p: prosjekt) => JSON.stringify(p) === e.target.value
-              ) || null
+              prosjekter.find((p: prosjekt) => p.Id === e.target.value) || null
             )
           }
           label={'prosjekt'}
         >
           <option value="">velg et prosjekt</option>
           {prosjekter.map((p: prosjekt, i) => (
-            <option key={i} value={JSON.stringify(p)}>
+            <option key={i} value={p.Id}>
               {`${p.navn} | ${p.kunde.navn} ${p.kunde.orgnr} | ${
                 Status[p.status]
               }`}

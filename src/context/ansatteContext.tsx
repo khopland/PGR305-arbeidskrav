@@ -1,4 +1,4 @@
-import React, { createContext, FC, useState } from 'react';
+import React, { createContext, FC } from 'react';
 import { ansatte } from '../interfaces/ansatte';
 import { useLocalStorage } from '../lib/useLocalSotrage';
 import { AnsatteContextType } from '../types/ansatteContextType';
