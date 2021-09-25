@@ -1,5 +1,6 @@
-import { Ansatte } from "./ansatte";
-import { Main } from "./main";
-import { Projects } from "./project";
+import { Ansatte } from './ansatte';
+import { Kunder } from './kunder';
+import { Main } from './main';
+import { Prosjekter } from './prosjekter';
 
-export { Main, Projects, Ansatte };
+export { Main, Prosjekter, Ansatte, Kunder };

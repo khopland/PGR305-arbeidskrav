@@ -1,5 +1,15 @@
-import React from "react";
+import React from 'react';
+import { Container, Row, Image } from 'react-bootstrap';
 
 export const Main = () => {
-  return <h1>hello world</h1>;
+  return (
+    <>
+      <Container>
+        <h1>hello</h1>
+        <Row>
+          <Image src="../../assets/preview_COLOURBOX47639300.jpg" fluid />
+        </Row>
+      </Container>
+    </>
+  );
 };
