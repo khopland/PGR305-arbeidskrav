@@ -6,7 +6,9 @@ export const MainNav = () => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>konsultant</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          konuslent
+        </Navbar.Brand>
         <Nav>
           <Nav.Link as={Link} to="/">
             Hjem
